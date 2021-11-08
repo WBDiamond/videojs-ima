@@ -282,10 +282,13 @@ PlayerWrapper.prototype.onAdTimeout = function() {
  * Called when the player fires its 'ready' event.
  */
 PlayerWrapper.prototype.onPlayerReady = function() {
-  this.h5Player =
-      document.getElementById(
-          this.getPlayerId()).getElementsByClassName(
-              'vjs-tech')[0];
+  // TODO: shadow dom fix
+  // this.h5Player =
+  //     document.getElementById(
+  //         this.getPlayerId()).getElementsByClassName(
+  //             'vjs-tech')[0];
+
+  this.h5Player = this.vjsPlayer.$('.vjs-tech');
 
   // Detect inline options
   if (this.h5Player.hasAttribute('autoplay')) {
